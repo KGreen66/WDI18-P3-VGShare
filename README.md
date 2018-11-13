@@ -21,8 +21,8 @@ Others:
 
 
 ### Planning and Project Management
-User Story/Trello: https://trello.com/b/sjaXLias/wdi18-project-3
-Wireframes: [Link]
-ERDiagrams: https://www.figma.com/file/YFiQ3iWczogSrIitp4reRfPa/Entity-Relationships?node-id=0%3A1
+- User Story/Trello: https://trello.com/b/sjaXLias/wdi18-project-3
+- Wireframes: [Link]
+- ERDiagrams: https://www.figma.com/file/YFiQ3iWczogSrIitp4reRfPa/Entity-Relationships?node-id=0%3A1
 
 ### Remaining Goals

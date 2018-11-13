@@ -1,0 +1,33 @@
+{
+  "name": "WDI18-P3-VGShare",
+  "version": "1.0.0",
+  "description": "This is an app for gamers to connect, communicate, share media, and more. Think of it as Instagram, on steroids, for gamers.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "concurrently \"nodemon server.js\" \"cd ./client  && npm start \" ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KGreen66/WDI18-P3-VGShare.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KGreen66/WDI18-P3-VGShare/issues"
+  },
+  "homepage": "https://github.com/KGreen66/WDI18-P3-VGShare#readme",
+  "dependencies": {
+    "concurrently": "^4.0.1",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.12",
+    "postinstall": "^0.4.2"
+  },
+  "engines": {
+    "node": "10.13.0"
+  }
+}
