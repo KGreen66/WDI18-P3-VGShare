@@ -76,15 +76,17 @@ const rocketLeagueClip = new Media({
     game: [rl]
 })
 
-Media.remove()
-Game.remove()
-User.remove()
+Media.remove({})
+
+Game.remove({})
+    .then(() => rl.media.push(rocketLeagueClip))
+    .then(() => rl.save())
+
+User.remove({})
     .then(() => keith.media.push(rocketLeagueClip))
     .then(() => keith.friends.push(jack, bubba))
     .then(() => keith.save())
-
     .then(() => jack.friends.push(bubba))
     .then(() => jack.save())
-
-    .then(() => rl.media.push(rocketLeagueClip))
-    .then(() => rl.save())
+    .then(() => console.log('SUCCESSFUL SAVE!!!'))
+    .then(() => mongoose.connection.close())

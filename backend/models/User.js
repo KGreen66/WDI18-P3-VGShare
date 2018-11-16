@@ -18,6 +18,10 @@ const User = new Schema({
     friends: {
         type: Schema.Types.ObjectId,
         ref: 'Friends'
+    },
+    games: {
+        type: Schema.Types.ObjectId, 
+        ref: 'Game'
     }
 })
 
