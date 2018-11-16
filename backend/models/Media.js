@@ -11,7 +11,6 @@ const Media = new Schema({
         required: true
     },
     description: String,
-    created: Date,
     creator: {
         type: Schema.Types.ObjectId,
         ref: 'User'
