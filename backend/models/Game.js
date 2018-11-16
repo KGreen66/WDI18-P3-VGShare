@@ -2,10 +2,7 @@ const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
 const Game = new Schema({
-    title: {
-        type: String,
-        required: true
-    },
+    title: String,
     description: String,
     typeOfGame: String,
     media: [{

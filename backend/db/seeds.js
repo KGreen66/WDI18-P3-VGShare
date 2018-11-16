@@ -1,11 +1,9 @@
 const User = require('../models/User')
 const Media = require('../models/Media')
-const Friends = require('../models/Friends')
-const Message = require('../models/Messages')
 const Game = require('../models/Game')
 const mongoose = require('./connections')
 
-const rl = new Game({
+const rocketLeague = new Game({
     title: 'Rocket League',
     description: 'Play soccar, basketball, hockey, and more game modes, all while controlling a rocket powered car',
     typeOfGame: 'Competitive, Sports',
@@ -19,58 +17,43 @@ const overwatch = new Game({
     media: []
 })
 
-const rdr2 = new Game({
-    title: 'Red Dead Redemption 2',
-    description: '',
-    typeOfGame: 'Action, RPG',
-    media: []
-})
-
-const pubg = new Game({
-    title: "PlayerUknown's Battlegrounds",
-    description: '',
-    typeOfGame: 'Battle-Royale, First-Person Shooter',
-    media: []
-})
-
-const minecraft = new Game({
-    title: 'Minecraft',
-    description: '',
-    typeOfGame: 'World-builder',
-    media: []
-})
-
 const rocketLeagueClip = new Media({
-    title: 'Rocket League Compilation 1',
+    title: 'Rocket League Compilation',
     url: 'https://xboxdvr.com/gamer/sleepysliders13/video/63773213',
     description: 'compilation of goals and saves I made in Rocket League, compiled from games before March 2017',
-    user: [],
-    game: [rl]
+    creator: [],
+    game: [rocketLeague]
+})
+
+const owClip = new Media({
+    title: 'Overwatch Clip',
+    url: 'https://xboxdvr.com/gamer/sleepysliders13/video/63775348',
+    description: 'short clip of me playing OW',
+    creator: [],
+    game: [overwatch]
 })
 
 const keith = new User({
     gamertag: 'Sleepysliders13',
     name: 'Keith Green',
     info: 'Plays video games',
-    media: [rocketLeagueClip]
-})
-
-const jack = new User({
-    gamertag: 'Jack from CA',
-    name: "Jack Seaton",
-    info: 'Back-end web developer from california, currently residing in Boise',
-    media: []
-})
-
-const bubba = new User({
-    gamertag: 'Kjintroverted',
-    name: 'Williamrobert Green',
-    info: '',
-    media: []
+    media: [rocketLeagueClip, owClip],
+    games: [rocketLeague, overwatch]
 })
 
 Media.remove({})
-User.remove({})
 Game.remove({})
+User.remove({})
+    .then(() => Media.insertMany(rocketLeagueClip, owClip))
+    .then(() => Game.insertMany(overwatch, rocketLeague))
+    .then(() => keith.save())
+    .then(() => rocketLeague.media.push(rocketLeagueClip))
+    .then(() => rocketLeague.save())
+    .then(() => overwatch.media.push(owClip))
+    .then(() => overwatch.save())
+    .then(() => rocketLeagueClip.creator.push(keith))
+    .then(() => rocketLeagueClip.save())
+    .then(() => owClip.creator.push(keith))
+    .then(() => owClip.save())
     .then(() => console.log('SUCCESSFUL SAVE!!!'))
     .then(() => mongoose.connection.close())

@@ -2,23 +2,17 @@ const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
 const Media = new Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    url: {
-        type: String,
-        required: true
-    },
+    title: String,
+    url: String,
     description: String,
-    creator: {
+    creator: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    },
-    game: {
+    }],
+    game: [{
         type: Schema.Types.ObjectId,
         ref: 'Game'
-    }
+    }]
 })
 
 module.exports = mongoose.model('Media', Media)

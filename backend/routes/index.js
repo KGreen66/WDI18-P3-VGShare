@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 const userController = require('../controllers/user')
 
-router.get('/api/home', userController.index)
-router.post('/api/home', userController.create)
-router.get('/api/home/:userId', userController.show)
-router.patch('/api/home/:userId', userController.update)
-router.delete('/api/home/:userId', userController.delete)
+router.get('/api/users', userController.index)
+router.post('/api/users', userController.create)
+router.get('/api/users/:userId', userController.show)
+router.patch('/api/users/:userId', userController.update)
+router.delete('/api/users/:userId', userController.delete)
 
 module.exports = router
