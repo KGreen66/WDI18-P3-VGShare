@@ -44,27 +44,21 @@ const keith = new User({
     gamertag: 'Sleepysliders13',
     name: 'Keith Green',
     info: 'Plays video games',
-    media: [],
-    friends: [],
-    games: [rl, overwatch, pubg, rdr2]
+    media: []
 })
 
 const jack = new User({
     gamertag: 'Jack from CA',
     name: "Jack Seaton",
     info: 'Back-end web developer from california, currently residing in Boise',
-    media: [],
-    friends: [keith],
-    games: [rl, pubg, minecraft]
+    media: []
 })
 
 const bubba = new User({
     gamertag: 'Kjintroverted',
     name: 'Williamrobert Green',
     info: '',
-    media: [],
-    friends: [keith, jack],
-    games: [rl, rdr2]
+    media: []
 })
 
 const rocketLeagueClip = new Media({
@@ -84,9 +78,6 @@ Game.remove({})
 
 User.remove({})
     .then(() => keith.media.push(rocketLeagueClip))
-    .then(() => keith.friends.push(jack, bubba))
     .then(() => keith.save())
-    .then(() => jack.friends.push(bubba))
-    .then(() => jack.save())
     .then(() => console.log('SUCCESSFUL SAVE!!!'))
     .then(() => mongoose.connection.close())

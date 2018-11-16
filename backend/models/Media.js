@@ -12,8 +12,14 @@ const Media = new Schema({
     },
     description: String,
     created: Date,
-    creator: String,
-    game: String
+    creator: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    game: {
+        type: Schema.Types.ObjectId,
+        ref: 'Game'
+    }
 })
 
 module.exports = mongoose.model('Media', Media)

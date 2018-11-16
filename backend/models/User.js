@@ -14,14 +14,6 @@ const User = new Schema({
     media: {
         type: Schema.Types.ObjectId,
         ref: 'Media'
-    },
-    friends: {
-        type: Schema.Types.ObjectId,
-        ref: 'Friends'
-    },
-    games: {
-        type: Schema.Types.ObjectId, 
-        ref: 'Game'
     }
 })
 
