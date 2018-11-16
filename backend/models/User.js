@@ -13,7 +13,8 @@ const User = new Schema({
     media: [{
         type: Schema.Types.ObjectId,
         ref: 'Media'
-    }]
+    }],
+    password: String,
 })
 
 module.exports = mongoose.model('User', User)

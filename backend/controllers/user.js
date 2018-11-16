@@ -3,8 +3,9 @@ const Media = require('../models/Media')
 
 const userController = {
     index: (req, res) => {
-        User.find({}).populate('Media')
+        User.find({})
             .then((users) => {
+                console.log(users)
                 res.send(users)
             })
     },

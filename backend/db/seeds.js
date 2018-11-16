@@ -38,7 +38,8 @@ const keith = new User({
     name: 'Keith Green',
     info: 'Plays video games',
     media: [rocketLeagueClip, owClip],
-    games: [rocketLeague, overwatch]
+    games: [rocketLeague, overwatch],
+    password: 'wincup17'
 })
 
 Media.remove({})
