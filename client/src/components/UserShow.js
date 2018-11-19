@@ -45,7 +45,8 @@ class UserShow extends Component {
     }
 
     deleteUser = () => {
-        axios.delete(`/api/users/${this.state._id}`).then(() => {
+        console.log('deleted')
+        axios.delete(`/api/users/${this.state.user._id}`).then(() => {
             this.props.history.push('/login')
         })
     }
