@@ -2,7 +2,7 @@ const Media = require('../models/Media')
 
 const mediaController = {
     index: (req, res) => {
-        Media.find({})
+        Media.find({}).populate('creator', 'game')
             .then((medias) => {
                 console.log(medias)
                 res.send(medias)

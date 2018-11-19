@@ -4,13 +4,16 @@ import styled from "styled-components";
 
 class NewMediaForm extends Component {
   state = {
-      user: {}
+      user: {
+        media: [{}],
+        newMedia: {}
+      }
   };
 
   handleNew = event => {
     event.preventDefault();
-    axios.post(`/api/users/${this.props.match.params.userId}`, this.state.user).then(res => {
-      this.props.history.push(`/users/${res.data._id}`);
+    axios.post(`/api/users/${this.props.match.params.userId}`, this.state.user.newMedia).then(res => {
+      this.props.history.push(`/users/${this.props.match.params.userId}/${res.data._id}`);
     });
   };
 

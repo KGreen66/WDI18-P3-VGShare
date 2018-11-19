@@ -9,14 +9,13 @@ class MediaShow extends Component{
             title: '',
             url: '',
             description: '',
-            creator: {},
+            creator: {
+                gamertag: '',
+                name: '',
+                info: '',
+            },
             game: {},
         },
-        creator: {
-            gamertag: '',
-            name: '',
-            info: ''
-        }
     }
     componentDidMount(){
         const mediaId = this.props.match.params.mediaId
@@ -38,7 +37,7 @@ class MediaShow extends Component{
 
     render(){
         return(
-            <div>
+            <div className="mediaShow-container">
                 <h1>{this.state.media.title}</h1>
 
                 <ReactPlayer url={this.state.media.url} />
