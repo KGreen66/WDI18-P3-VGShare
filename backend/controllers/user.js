@@ -10,7 +10,7 @@ const userController = {
             })
     },
     show: (req, res) => {
-        User.findById(req.params.userId)
+        User.findById(req.params.userId).populate('media')
             .then((user) => {
                 res.send(user)
             })

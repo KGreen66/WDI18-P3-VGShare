@@ -2,16 +2,14 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ReactPlayer from 'react-player'
 
 class UserShow extends Component {
   state = {
-    user: {},
-    newUser: {
-        gamertag: '',
-        name: '',
-        info: ''
+    user: {
+        media: []
     },
-    toggleNew: true
+    toggleNew: false
   };
 
   componentDidMount() {
@@ -31,17 +29,16 @@ class UserShow extends Component {
 
   handleUpdate = (event) => {
     event.preventDefault()
-    //Make post to our api to create new user
-    axios.patch(`/api/users/${this.state.user._id}`, this.state.newUser).then(res => {
-        this.props.history.push(`/users/${res.data._id}`)    
+    axios.patch(`/api/users/${this.props.match.params.userId}`, this.state.user).then(res => {
+        this.props.history.push(`/users/${res.data._id}`) 
+        console.log('user updated')   
     })
-    //When we get that data back, we need to navigate to the new users page
   }
 
   handleChange = (event) => {
-    var updatedNewUser = {...this.state.newUser}
-    updatedNewUser[event.target.name] = event.target.value
-    this.setState({newUser: updatedNewUser})
+    var updatedUser = {...this.state.user}
+    updatedUser[event.target.name] = event.target.value
+    this.setState({user: updatedUser})
     }
 
     deleteUser = () => {
@@ -58,6 +55,9 @@ class UserShow extends Component {
           <h1>{this.state.user.gamertag}</h1>
         </div>
         <div>
+            <Link to={`/users/${this.state.user._id}/newMedia`}>Add New Media</Link>
+        </div>
+        <div>
           <h3>
             <em>Name: </em>
             {this.state.user.name}
@@ -67,13 +67,14 @@ class UserShow extends Component {
             {this.state.user.info}
           </p>
         </div>
-        {/* <div>
-                {this.state.media.map(media => (
+        <div className='user-media-containers'>
+                {this.state.user.media.map(media => (
                     <div key={media._id}>
                         <Link to={`/media/${media._id}`} >{media.title}</Link>
+                        <ReactPlayer url={media.url} />
                     </div>
                 ))}
-                </div> */}
+        </div>
         <div className="edit-functions">
           <span>
             <button className="hide-button" onClick={this.toggleNewForm}>

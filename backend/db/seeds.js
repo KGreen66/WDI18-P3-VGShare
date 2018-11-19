@@ -19,7 +19,7 @@ const overwatch = new Game({
 
 const rocketLeagueClip = new Media({
     title: 'Rocket League Compilation',
-    url: 'https://xboxdvr.com/gamer/sleepysliders13/video/63773213',
+    url: 'https://www.youtube.com/watch?v=bvkvGOM4Wcs',
     description: 'compilation of goals and saves I made in Rocket League, compiled from games before March 2017',
     creator: [],
     game: [rocketLeague]
@@ -27,7 +27,7 @@ const rocketLeagueClip = new Media({
 
 const owClip = new Media({
     title: 'Overwatch Clip',
-    url: 'https://xboxdvr.com/gamer/sleepysliders13/video/63775348',
+    url: 'https://www.youtube.com/watch?v=o6XPZa6qrEg',
     description: 'short clip of me playing OW',
     creator: [],
     game: [overwatch]
@@ -42,8 +42,8 @@ const keith = new User({
     password: 'wincup17'
 })
 
-Media.remove({})
-Game.remove({})
+Media.remove()
+Game.remove()
 User.remove({})
     .then(() => Media.insertMany(rocketLeagueClip, owClip))
     .then(() => Game.insertMany(overwatch, rocketLeague))
