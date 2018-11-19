@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import HomePage from "./components/HomePage";
 import UserShow from "./components/UserShow";
+import MediaPage from "./components/MediaPage";
+import MediaShow from "./components/MediaShow";
 
 class App extends Component {
   render() {
@@ -17,6 +19,8 @@ class App extends Component {
           <Switch>
             <Route exact path='/login' component={Login} />
             <Route exact path='/users/:userId' component={UserShow} />
+            <Route exact path='/media' component={MediaPage} />
+            <Route exact path='/media/:mediaId' component={MediaShow} />
             <Route path='/' component={HomePage} />
           </Switch>
         </div>
