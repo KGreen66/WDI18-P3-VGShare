@@ -42,8 +42,8 @@ const keith = new User({
     password: 'wincup17'
 })
 
-Media.remove()
-Game.remove()
+Media.remove({})
+Game.remove({})
 User.remove({})
     .then(() => Media.insertMany(rocketLeagueClip, owClip))
     .then(() => Game.insertMany(overwatch, rocketLeague))
