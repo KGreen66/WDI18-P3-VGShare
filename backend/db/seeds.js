@@ -35,6 +35,7 @@ const owClip = new Media({
 
 const keith = new User({
     gamertag: 'Sleepysliders13',
+    pic: 'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjDw4zK_uPeAhUF3lMKHR8JD2AQjRx6BAgBEAU&url=https%3A%2F%2Fjuntostarc.myshopify.com%2Fproducts%2Foverwatch-icon-button&psig=AOvVaw1g6PMe8MQglvejoKWBWEyQ&ust=1542838221397652',
     name: 'Keith Green',
     info: 'Plays video games',
     media: [rocketLeagueClip, owClip],

@@ -11,14 +11,14 @@ class MediaPage extends Component {
       title: '',
       description: '',
       url: '',
-      creator: {},
-      game: {}
+      creator: [],
+      game: []
     }]
   };
   componentDidMount() {
     axios.get("/api/media").then(res => {
       this.setState({ media: res.data });
-      console.log(this.state.media.data);
+      // console.log(this.state.media.data);
     });
   }
 
@@ -31,7 +31,7 @@ class MediaPage extends Component {
           {this.state.media.map(media => (
             <div key={media._id} className="media-page-containers">
               <div className='media-main'>
-                <Link to={`/media/${this.state.media._id}`}><h2>{media.title}</h2></Link>
+                <Link to={`/media/${media._id}`}><h2>{media.title}</h2></Link>
                 <ReactPlayer url={media.url} />
               </div>
               <div className='media-details'>

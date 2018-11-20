@@ -8,6 +8,7 @@ const Schema = mongoose.Schema
 
 const User = new Schema({
     gamertag: String,
+    pic: String,
     name: String,
     info: String,
     media: [{
