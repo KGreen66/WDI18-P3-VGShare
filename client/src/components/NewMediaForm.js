@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import Navbar from "./Navbar";
 
 class NewMediaForm extends Component {
   state = {
@@ -26,6 +27,7 @@ class NewMediaForm extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <h1>Post a new video clip</h1>
         <h4>Please fill out all input areas:</h4>
         <form onSubmit={this.handleNew}>

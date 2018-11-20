@@ -14,9 +14,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <div>
-            <Navbar />
-          </div>
           <Switch>
             <Route exact path='/login' component={Login} />
             <Route exact path='/users/:userId' component={UserShow} />

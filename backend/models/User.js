@@ -15,6 +15,7 @@ const User = new Schema({
         ref: 'Media'
     }],
     password: String,
+    email: String
 })
 
 module.exports = mongoose.model('User', User)

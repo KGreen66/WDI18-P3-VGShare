@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import Navbar from './Navbar';
 
 const LoginStyles = styled.div`
     display: flex;
@@ -82,6 +83,7 @@ class Login extends Component {
     render(){
         return(
             <div>
+            <Navbar />
             <LoginStyles>
                 <div className='signin'>
                     <h3>Already signed up?</h3>

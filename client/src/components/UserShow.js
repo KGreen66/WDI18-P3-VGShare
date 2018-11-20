@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ReactPlayer from 'react-player'
+import Navbar from "./Navbar";
 
 class UserShow extends Component {
   state = {
@@ -51,6 +52,7 @@ class UserShow extends Component {
   render() {
     return (
       <div>
+          <Navbar />
         <div>
           <h1>{this.state.user.gamertag}</h1>
         </div>

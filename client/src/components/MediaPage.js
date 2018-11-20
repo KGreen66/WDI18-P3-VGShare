@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
+import Navbar from "./Navbar";
 
 class MediaPage extends Component {
   state = {
@@ -24,12 +25,13 @@ class MediaPage extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <h1>Media Home Page</h1>
         <div className="media-main-container">
           {this.state.media.map(media => (
             <div key={media._id} className="media-page-containers">
               <div className='media-main'>
-                <h2>{media.title}</h2>
+                <Link to={`/media/${this.state.media._id}`}><h2>{media.title}</h2></Link>
                 <ReactPlayer url={media.url} />
               </div>
               <div className='media-details'>
