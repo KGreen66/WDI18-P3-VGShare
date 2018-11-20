@@ -4,17 +4,23 @@ import styled from "styled-components";
 
 class NewMediaForm extends Component {
   state = {
-      user: {
-        media: [{}],
-        newMedia: {}
-      }
+    title: "",
+    description: "",
+    url: ""
   };
 
   handleNew = event => {
     event.preventDefault();
-    axios.post(`/api/users/${this.props.match.params.userId}`, this.state.user.newMedia).then(res => {
-      this.props.history.push(`/users/${this.props.match.params.userId}/${res.data._id}`);
-    });
+    axios
+      .post(`/api/media`, this.state)
+      .then(res => {
+        this.props.history.push(`/media/${res.data._id}`);
+      });
+  };
+
+  handleChange = event => {
+    const { value, name } = event.target;
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -25,15 +31,30 @@ class NewMediaForm extends Component {
         <form onSubmit={this.handleNew}>
           <div>
             <label htmlFor="title">Title: </label>
-            <input type="text" name="title" />
+            <input
+              type="text"
+              name="title"
+              value={this.state.title}
+              onChange={this.handleChange}
+            />
           </div>
           <div>
             <label htmlFor="description">Description: </label>
-            <input type="text" name="description" />
+            <input
+              type="text"
+              name="description"
+              value={this.state.description}
+              onChange={this.handleChange}
+            />
           </div>
           <div>
             <label htmlFor="url">URL: </label>
-            <input type="text" name="url" />
+            <input
+              type="text"
+              name="url"
+              value={this.state.url}
+              onChange={this.handleChange}
+            />
           </div>
           <button type="submit">Add Video</button>
         </form>

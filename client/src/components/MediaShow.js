@@ -44,7 +44,7 @@ class MediaShow extends Component{
 
                 <h3>Description</h3>
                 <p>{this.state.media.description}</p>
-                <p>{this.state.media.creator.gamertag}</p>
+                {/* <p>{this.state.media.creator.gamertag}</p> */}
                 <button onClick={this.delete}>Delete video</button>
             </div>
         )

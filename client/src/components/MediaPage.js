@@ -33,8 +33,8 @@ class MediaPage extends Component {
                 <ReactPlayer url={media.url} />
               </div>
               <div className='media-details'>
-                <h3>{media.creator.gamertag}</h3>
-                <h3>{media.game.title}</h3>
+                {/* <h3>{media.creator.gamertag}</h3>
+                <h3>{media.game.title}</h3> */}
                 <h4>{media.description}</h4>               
               </div>
             </div>
