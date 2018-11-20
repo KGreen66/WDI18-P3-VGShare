@@ -5,14 +5,14 @@ const Media = new Schema({
     title: String,
     url: String,
     description: String,
-    creator: {
+    creator: [{
         type: Schema.Types.ObjectId,
         ref: 'User'
-    },
-    game: {
+    }],
+    game: [{
         type: Schema.Types.ObjectId,
         ref: 'Game'
-    }
+    }]
 })
 
 module.exports = mongoose.model('Media', Media)
