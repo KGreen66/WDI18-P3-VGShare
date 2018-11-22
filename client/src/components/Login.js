@@ -15,7 +15,7 @@ const LoginStyles = styled.div`
     margin-top: 25px;
     border: 5px solid black;
     height: 25vh;
-    width: 35vw;
+    width: 30vw;
     text-align: center;
   }
   .signin label {
@@ -36,7 +36,7 @@ const LoginStyles = styled.div`
     margin-top: 25px;
     border: 5px solid black;
     height: 25vh;
-    width: 45vh;
+    width: 60vh;
     text-align: center;
   }
   .signup label {

@@ -48,6 +48,21 @@ const UserStyles = styled.div`
     padding: 10px 15px;
     margin: 10px;
   }
+  .media-player {
+    margin: 15px 20px 15px 30px;
+  }
+  .user-media-containers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-media-single {
+    text-align: center;
+    padding: 20px 5px;
+    margin-bottom: 5px;
+    border: 3px solid lightgray;
+  }
 `;
 
 class UserShow extends Component {
@@ -130,7 +145,7 @@ class UserShow extends Component {
             <h3>Media: </h3>
             <div className="user-media-containers">
               {this.state.user.media.map(media => (
-                <div key={media._id}>
+                <div key={media._id} className='user-media-single'>
                   <Link to={`/media/${media._id}`}>{media.title}</Link>
                   <div className="media-player">
                     <ReactPlayer url={media.url} />

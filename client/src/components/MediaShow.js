@@ -57,8 +57,9 @@ class MediaShow extends Component {
 
           <ReactPlayer url={media.url} />
 
-          <h3>Description</h3>
+          <h3>Description: </h3>
           <p>{media.description}</p>
+          <h4>Creator: </h4>
           <p>{!creator ? 'Cannot find user.' : creator.gamertag}</p>
             {/* <Link to={`/users/${creator._id}`}>Back to {creator.gamertag}'s Page</Link> */}
           <button onClick={this.delete}>Delete video</button>
