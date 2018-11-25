@@ -48,7 +48,7 @@ class Navbar extends Component {
             <NavbarStyles>
                 <div className='left'>
                     <Link to='/'><img src={logo} alt="logo" className='app-logo' /></Link>
-                    <Link to='/'><h1>VG-Share</h1></Link>
+                    <Link to='/'><h1>Gamer-Gram</h1></Link>
                 </div>
                 <div className='right'>
                     <Link to='/login'>Log-in</Link>
